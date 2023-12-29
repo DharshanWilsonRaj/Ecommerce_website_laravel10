@@ -1,7 +1,10 @@
 DB:design For ecommerce
 
 
-Admin-> (seeder) -> Name , Email, password , Role_id 
+Admin-> (seeder) -> Name , Email
+
+
+ password , Role_id 
 users -> name, email ,password , role_id, address-> nullabel , phone  
 products -> product_name , product_discription , product_image , price ,stocks  
 orders ->  product_id , product_name , product_image, products_price, customer_name , customer_email , customer_address , price , totalCount , Date status 
