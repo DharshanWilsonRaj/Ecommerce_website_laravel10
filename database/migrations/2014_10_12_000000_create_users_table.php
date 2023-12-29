@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('email_verified_at')->nullable();
             $table->integer('role_id')->comment('1->Admin 2->customer');
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
