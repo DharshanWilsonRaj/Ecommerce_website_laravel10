@@ -87,12 +87,12 @@
 
 
 
-    <script type="text/javascript">
+    {{-- <script type="text/javascript">
         $(function() {
             var table = $('#myTable').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('student_table.ajax') }}",
+                // ajax: "{{ route('student_table.ajax') }}",
                 columns: [{
                         data: 'id',
                         name: 'id'
@@ -117,7 +117,7 @@
                 ]
             });
         });
-    </script>
+    </script> --}}
 </body>
 
 </html>
