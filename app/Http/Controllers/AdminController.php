@@ -15,8 +15,10 @@ class AdminController extends Controller
     }
     public function products()
     {
+        $products = Product::all();
         return view('admin.products.index');
     }
+
     public function productAdd()
     {
         return view('admin.products.addProducts');
@@ -47,7 +49,7 @@ class AdminController extends Controller
         $product->save();
         return redirect()->route('admin.products')->with('success', 'Product added successfully');
     }
-    
+
     public function productEdit()
     {
         return view('admin.products.addProducts');

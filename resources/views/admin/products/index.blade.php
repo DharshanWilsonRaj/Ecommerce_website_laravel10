@@ -13,7 +13,7 @@
                 </a>
             </div>
         </div>
-        <table class="table table-hover mt-2">
+        <table id="myTable" class="table table-hover mt-2">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -24,6 +24,10 @@
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
+            <tbody>
+
+
+            </tbody>
         </table>
     </div>
 @endsection

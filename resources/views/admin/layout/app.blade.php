@@ -10,6 +10,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     {{-- fontawesome cdn --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    {{-- datatable --}}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+
     @notifyCss
 
     <style>
@@ -68,7 +74,50 @@
 
     {{-- bootstrap js --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    {{-- datatable --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.7/js/dataTables.bootstrap4.min.js"></script>
+
     @notifyJs
+
+
+
+    <script type="text/javascript">
+        $(function() {
+            var table = $('#myTable').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('student_table.ajax') }}",
+                columns: [{
+                        data: 'id',
+                        name: 'id'
+                    },
+                    {
+                        data: 'image',
+                        name: 'image'
+                    },
+                    {
+                        data: 'name',
+                        name: 'name'
+                    },
+                    {
+                        data: 'price',
+                        name: 'price'
+                    },
+                    {
+                        data: 'stocks',
+                        name: 'stocks'
+                    },
+
+                ]
+            });
+        });
+    </script>
 </body>
 
 </html>
