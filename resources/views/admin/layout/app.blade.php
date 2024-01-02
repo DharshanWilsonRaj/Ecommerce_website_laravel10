@@ -8,20 +8,25 @@
     <title>Ecommerce</title>
     {{-- bootstrap css --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    {{-- fontawesome cdn --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     @notifyCss
 
     <style>
         .sidebar a {
             padding: 10px 5px;
-            color: black
+            color: black;
+            border-radius: 5px;
         }
 
         .sidebar a.active {
-            background: #bcbcbc;
+            background: #15121E;
+            color: white
         }
 
-        .sidebar a.hover {
-            background: #bcbcbc;
+        .sidebar a:hover {
+            background: #221d2e;
+            color: white
         }
     </style>
 </head>
@@ -33,15 +38,26 @@
     <div class="layout_container d-flex ">
         <div class="sidebar bg-light p-2 d-flex flex-column gap-2" style="width: 15% ; height:100vh">
             <a href="{{ route('admin.dashboard') }}"
-                class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">Dashboard</a>
-            <a href="{{ route('admin.products') }}"
-                class="{{ request()->routeIs('admin.products') ? 'active' : '' }}">Products</a>
-            <a href="{{ route('admin.orders') }}"
-                class="{{ request()->routeIs('admin.orders') ? 'active' : '' }}">Orders</a>
-            <a href="{{ route('profile') }}"
-                class="{{ request()->routeIs('profile') ? 'active' : '' }}">Profile</a>
+                class="{{ Str::contains(request()->url(), '/admin/dashboard') ? 'active' : '' }}">
+                <i class="fa-solid fa-chart-line mx-1"></i>Dashboard
+            </a>
 
-            <a href="{{ route('logout') }}">Logout</a>
+            <a href="{{ route('admin.products') }}"
+                class="{{ Str::contains(request()->url(), '/admin/products') ? 'active' : '' }}">
+                <i class="fa-solid fa-store mx-1"></i>Products
+            </a>
+
+            <a href="{{ route('admin.orders') }}"
+                class="{{ Str::contains(request()->url(), '/admin/orders') ? 'active' : '' }}">
+                <i class="fa-solid fa-truck-fast  mx-1"></i>Orders
+            </a>
+
+            <a href="{{ route('profile') }}"
+                class="{{ Str::contains(request()->url(), '/admin/profile') ? 'active' : '' }}">
+                <i class="fa-regular fa-user  mx-1"></i>Profile
+            </a>
+
+            <a href="{{ route('logout') }}"><i class="fa-solid fa-right-from-bracket  mx-1"></i>Logout</a>
         </div>
 
         <div style="width:85%">

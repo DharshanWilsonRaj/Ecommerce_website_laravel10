@@ -14,14 +14,19 @@
 <body>
     <x-notify::notify />
     <div class="layout_container">
-        <div class="bg-light d-flex align-items-center p-2 px-4">
+        <div class="bg-light d-flex align-items-center p-3 px-5">
             <h5>Ecommerce</h5>
             <div class="ms-auto ">
-                <ul class="d-flex gap-3">
-                    <li><a href="">Cart</a></li>
-                    <li><a href="">Profile</a></li>
-                    <li><a href="{{route('login')}}">Login</a></li>
-                    <li><a  href="{{route('register')}}">Register</a></li>
+                <ul class="d-flex gap-3 ">
+                    @auth
+                        <li><a href="">Cart</a></li>
+                        <li><a href="">Profile</a></li>
+                        <li><a href="{{route('logout')}}">Logout</a></li>
+                    @else
+                        <li><a href="{{ route('login') }}">Login</a></li>
+                        <li><a href="{{ route('register') }}">Register</a></li>
+                    @endauth
+
                 </ul>
             </div>
         </div>

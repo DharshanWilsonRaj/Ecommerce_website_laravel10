@@ -37,9 +37,9 @@ class AuthController extends Controller
             'password' => 'required|string|min:6',
         ]);
         $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
+        if (auth()->attempt($credentials)) {
             notify()->success('Welcome to Ecommerce⚡️');
-            $userRole = Auth::user()->role_id;
+            $userRole = auth()->user()->role_id;
             if ($userRole == 1) {
                 return redirect()->route('admin.dashboard');
             } else if ($userRole == 2) {

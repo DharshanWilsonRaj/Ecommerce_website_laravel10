@@ -39,8 +39,19 @@ Route::middleware(['auth'])->group(function () {
 
     // Admin Routes
     Route::middleware('role:1')->group(function () {
-        Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-        Route::get('/admin/products', [AdminController::class, 'products'])->name('admin.products');
-        Route::get('/admin/orders', [AdminController::class, 'orders'])->name('admin.orders');
+        Route::prefix('admin')->namespace('Admin')->group(function () {
+            Route::get('dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+            Route::get('products', [AdminController::class, 'products'])->name('admin.products');
+            Route::get('orders', [AdminController::class, 'orders'])->name('admin.orders');
+
+            Route::prefix('products')->group(function () {
+                Route::get('add', [AdminController::class, 'productAdd'])->name('admin.product.add');
+                Route::post('add', [AdminController::class, 'productStore'])->name('admin.product.store');
+                Route::get('edit', [AdminController::class, 'productStore'])->name('admin.product.edit');
+            });
+            Route::prefix('orders')->group(function () {
+                
+            });
+        });
     });
 });

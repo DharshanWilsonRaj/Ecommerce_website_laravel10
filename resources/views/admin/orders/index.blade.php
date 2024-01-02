@@ -2,6 +2,6 @@
 
 @section('content')
     <div class="bg-light p-3">
-        orders
+        <p class="fs-3">Orders</p>
     </div>
 @endsection
