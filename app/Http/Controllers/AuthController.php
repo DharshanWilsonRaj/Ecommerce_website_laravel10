@@ -54,8 +54,21 @@ class AuthController extends Controller
         Auth::logout();
         return redirect()->route('home');
     }
-    public function profile()
+    public function adminProfile()
     {
-        // return redirect()->route('home');
+        $user = auth()->user();
+        return view('admin.profile', compact('user'));
+    }
+    public function adminProfileUpdate(Request $request)
+    {
+        $user = auth()->user();
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,' . $user->id,
+
+        ]);
+        $user->update($validatedData);
+        notify()->success('Successfully update ');
+        return redirect()->route('admin.profile')->with('success', 'Profile updated successfully');
     }
 }

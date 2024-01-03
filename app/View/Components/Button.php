@@ -11,19 +11,20 @@ class Button extends Component
     /**
      * Create a new component instance.
      */
-    public $color;
-    public $bgcolor;
-    public $hoverBgcolor;
-    public $hoverColor;
-    public $class;
-
-    public function __construct($bgcolor = '#15121E', $color = '#fff', $hoverBgcolor = '#242031', $hoverColor = '#fff', $class = '')
+    // public $color;
+    // public $bgcolor;
+    // public $hoverBgcolor;
+    // public $hoverColor;
+    // public $class;
+//
+    // public function __construct($bgcolor = '#15121E', $color = '#fff', $hoverBgcolor = '#242031', $hoverColor = '#fff', $class = '')
+    public function __construct()
     {
-        $this->bgcolor = $bgcolor;
-        $this->color = $color;
-        $this->hoverBgcolor = $hoverBgcolor;
-        $this->hoverColor = $hoverColor;
-        $this->class = $class;
+        // $this->bgcolor = $bgcolor;
+        // $this->color = $color;
+        // $this->hoverBgcolor = $hoverBgcolor;
+        // $this->hoverColor = $hoverColor;
+        // $this->class = $class;
     }
 
     /**

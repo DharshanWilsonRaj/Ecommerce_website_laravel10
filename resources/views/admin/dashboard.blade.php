@@ -10,26 +10,26 @@
 
 
         <div class="d-flex mt-4 gap-2">
-            <div class="flex-grow-1 bg-light p-3 rounded border">
+            <div class="flex-grow-1 bg-light p-3 rounded border shadow-sm">
                 <p>Number of Products</p>
                 <strong class="fs-4">14715</strong>
             </div>
 
-            <div class="flex-grow-1  bg-light p-3 rounded border">
+            <div class="flex-grow-1  bg-light p-3 rounded border shadow-sm">
                 <p> Top selling products</p>
                 <strong class="fs-4">1855</strong>
             </div>
 
-            <div class="flex-grow-1 bg-light p-3 rounded border">
+            <div class="flex-grow-1 bg-light p-3 rounded border shadow-sm">
                 <p> Number of orders</p>
                 <strong class="fs-4">145</strong>
             </div>
 
-            <div class="col-2 bg-light p-3 rounded border">
+            <div class="col-2 bg-light p-3 rounded border shadow-sm">
                 <p> Number of shipped</p>
                 <strong class="fs-4">53</strong>
             </div>
-            <div class="col-2 bg-light p-3 rounded border shadow">
+            <div class="col-2 bg-light p-3 rounded border shadow-sm">
                 <p> Number of delivered</p>
                 <strong class="fs-4">87</strong>
             </div>
