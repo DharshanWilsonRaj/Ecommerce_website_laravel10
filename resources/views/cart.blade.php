@@ -34,7 +34,7 @@
                             $156
                         </td>
                         <td>
-                            <button class="bg-danger px-1 text-white rounded">X</button>
+                            <button class="bg-danger px-1 text-white rounded"><i class="fa-solid fa-trash-can"></i></button>
                         </td>
                     </tr>
                     <tr class="align-middle">
@@ -56,7 +56,7 @@
                             $156
                         </td>
                         <td>
-                            <button class="bg-danger px-1 text-white rounded">X</button>
+                            <button class="bg-danger px-1 text-white rounded"><i class="fa-solid fa-trash-can"></i></button>
                         </td>
                     </tr>
                 </tbody>

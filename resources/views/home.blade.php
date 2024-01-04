@@ -9,7 +9,7 @@
                         <img src="{{ $product->image }}" alt="{{ $product->name }}" class="img-fluid rounded mx-auto d-block"
                             style="height: 150px; width:200px">
                     @endif
-                    <h2 class="text-center">{{ $product->name }}</h2>
+                    <h2 class="text-center mt-2">{{ $product->name }}</h2>
                     <p class="fs-5 fw-bold text-center">Price: ${{ $product->price }}</p>
                     <a href="{{ route('addCart', ['id' => $product->id]) }}">
                         <x-button class="w-100 my-2">Add to cart</x-button>
