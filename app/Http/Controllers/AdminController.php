@@ -19,7 +19,7 @@ class AdminController extends Controller
     public function products(Request $request)
     {
         if ($request->ajax()) {
-            $data = Product::query();
+            $data = Product::query()->orderBy('id', 'desc');
             return Datatables::of($data)
 
                 ->addColumn('actions', function ($row) {

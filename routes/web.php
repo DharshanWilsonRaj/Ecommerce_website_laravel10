@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ProductController::class,'productsList'])->name('home');
+Route::get('/', [ProductController::class, 'productsList'])->name('home');
 
 Route::get('/login', function () {
     return view('Auth.login');
@@ -30,6 +31,10 @@ Route::get('/register', function () {
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
+// everyone access
+Route::get('/cart', [CustomerController::class, 'cartPage'])->name('cart');
+Route::get('/addCart/{id}', [CustomerController::class, 'addCart'])->name('addCart');
+
 
 // Authenticate Routes
 Route::middleware(['auth'])->group(function () {
@@ -37,7 +42,6 @@ Route::middleware(['auth'])->group(function () {
 
     // Admin Routes
     Route::middleware('role:1')->group(function () {
-
         Route::prefix('admin')->namespace('Admin')->group(function () {
             Route::get('dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
             Route::get('products', [AdminController::class, 'products'])->name('admin.products');
@@ -56,5 +60,9 @@ Route::middleware(['auth'])->group(function () {
             Route::prefix('orders')->group(function () {
             });
         });
+    });
+
+    // customer Routes
+    Route::middleware('role:2')->group(function () {
     });
 });

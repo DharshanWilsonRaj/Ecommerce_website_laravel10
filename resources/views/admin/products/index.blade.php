@@ -35,6 +35,7 @@
                 processing: true,
                 serverSide: true,
                 ajax: "{{ route('admin.products') }}",
+                pageLength: 5,
                 columns: [{
                         data: 'id',
                         name: 'id'

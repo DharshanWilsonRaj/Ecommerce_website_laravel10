@@ -8,7 +8,20 @@
     <title>Ecommerce</title>
     {{-- bootstrap css --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
     @notifyCss
+
+    <style>
+        .navbar a {
+            padding: 2px;
+            border-bottom: 1px solid transparent
+        }
+
+        .navbar a.active {
+            padding: 2px;
+            border-bottom: 1px solid white
+        }
+    </style>
 </head>
 
 <body>
@@ -16,21 +29,38 @@
         <x-notify::notify />
     </div>
     <div class="layout_container">
-        <div class="bg-light d-flex align-items-center p-3 px-5 shadow-sm">
-            <h5>Ecommerce</h5>
-            <div class="ms-auto ">
-                <ul class="d-flex gap-3 ">
-                    @auth
-                        <li><a href="">Cart</a></li>
-                        <li><a href="">Profile</a></li>
-                        <li><a href="{{ route('logout') }}">Logout</a></li>
-                    @else
-                        <li><a href="{{ route('login') }}">Login</a></li>
-                        <li><a href="{{ route('register') }}">Register</a></li>
-                    @endauth
+        <div class=" d-flex text-white align-items-center p-3 px-5 shadow" style="background: #15121E">
+            <h3 class=" fs-3 fw-bold">Ecommerce</h5>
+                <div class="ms-auto ">
+                    <ul class="d-flex gap-3 navbar ">
+                        <li>
+                            <a href="{{ route('home') }}" class="fw-bold {{ request()->is('/') ? 'active' : '' }}">Home</a>
 
-                </ul>
-            </div>
+                        </li>
+                        <li>
+                            <a href="{{ route('cart') }}"
+                                class="fw-bold {{ Str::contains(request()->url(), '/cart') ? 'active' : '' }}">Cart
+                            </a>
+                        </li>
+                        @auth
+                            <li>
+                                <a href=""
+                                    class="fw-bold {{ Str::contains(request()->url(), '/cart') ? 'active' : '' }}">Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('logout') }}" class="fw-bold ">Logout </a>
+                            </li>
+                        @else
+                            <li>
+                                <a href="{{ route('login') }}" class="fw-bold ">SignIn </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('register') }}" class="fw-bold ">SignUp </a>
+                            </li>
+                        @endauth
+                    </ul>
+                </div>
         </div>
         @yield('content')
     </div>

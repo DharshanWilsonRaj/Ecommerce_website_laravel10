@@ -4,8 +4,7 @@
     <div class="mx-2">
         <div class="bg-light d-flex align-items-center p-3 justify-content-between ">
             <p class="fs-3">Dashboard</p>
-            <x-username-display  />
-
+            <x-username-display />
         </div>
 
 
@@ -36,13 +35,11 @@
         </div>
 
         <div class="char_container mt-4 d-flex gap-3">
-            <img src="https://raw.githubusercontent.com/merixstudio/mrx-flutter-charts/master/screenshots/chart_bar.gif"
-                alt="" class="image-fluid rounded "
+            <img src="{{ url('/product_images/chart_bar.gif') }}" alt="chart_bar" class="image-fluid rounded "
                 style="height: 300px;  filter: grayscale(70%); box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5) ,
                 -2px -2px 10px rgba(0, 0, 0, 0.5);"
                 width="600px">
-            <img src="https://raw.githubusercontent.com/merixstudio/mrx-flutter-charts/master/screenshots/chart_candle.gif"
-                alt="" class="image-fluid rounded"
+            <img src="{{ url('/product_images/chart_candle.gif') }}" alt="chart_candle" class="image-fluid rounded"
                 style="height: 300px ;  filter: grayscale(70%); box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5) ,
                 -2px -2px 10px rgba(0, 0, 0, 0.5);"
                 width="600px">
