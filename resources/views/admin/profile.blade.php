@@ -1,7 +1,7 @@
 @extends('admin.layout.app')
 
 @section('content')
-    <h4 class="text-center fw-bold mt-3">Profile</h4>
+    <p class="fs-3 text-center mt-4 fw-bold">Profile</p>
     <div class="d-flex align-items-center justify-content-center">
         <form method="post" action="{{ route('admin.profile.update') }}">
             @csrf
@@ -20,7 +20,7 @@
                 @enderror
             </div>
             <div class="d-flex flex-column">
-                <x-button > Update</x-button>
+                <x-button> Update</x-button>
             </div>
         </form>
     </div>

@@ -11,17 +11,23 @@
     {{-- fontawesome cdn --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-    
+
     <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
     @notifyCss
 
     <style>
         .navbar a {
             padding: 2px;
-            border-bottom: 1px solid transparent
+            border-bottom: 1px solid transparent;
+            color: white;
         }
 
         .navbar a.active {
+            padding: 2px;
+            border-bottom: 1px solid white
+        }
+
+        .navbar a:hover {
             padding: 2px;
             border-bottom: 1px solid white
         }
@@ -54,14 +60,14 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('logout') }}" class="fw-bold ">Logout </a>
+                                <a href="{{ route('logout') }}"   class="fw-bold {{ Str::contains(request()->url(), '/logout') ? 'active' : '' }}">Logout </a>
                             </li>
                         @else
                             <li>
-                                <a href="{{ route('login') }}" class="fw-bold ">SignIn </a>
+                                <a href="{{ route('login') }}"   class="fw-bold {{ Str::contains(request()->url(), '/login') ? 'active' : '' }}">SignIn </a>
                             </li>
                             <li>
-                                <a href="{{ route('register') }}" class="fw-bold ">SignUp </a>
+                                <a href="{{ route('register') }}"   class="fw-bold {{ Str::contains(request()->url(), '/register') ? 'active' : '' }}">SignUp </a>
                             </li>
                         @endauth
                     </ul>

@@ -1,17 +1,6 @@
-<!doctype html>
-<html lang="en">
+@extends('layout.app')
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <title>Login</title>
-</head>
-
-<body>
+@section('content')
     @if ($errors->has('email'))
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
             <strong> {{ $errors->first('email') }}</strong>
@@ -19,27 +8,25 @@
         </div>
     @endif
 
-    <h5 class="text-center my-4">Login</h5>
+    <h5 class="text-center my-4 fs-3 fw-bold">Login</h5>
     <div class="d-flex align-center justify-content-center mt-5 ">
         <form action="{{ route('login') }}" method="post">
             @csrf
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                <label for="exampleInputEmail1" class="form-label">Email </label>
+                <input type="email" class="form-control border border-dark " name="email" value="{{ old('email') }}"
+                    style="background: transparent">
                 <div id="error" class="error"></div>
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" name="password" value="{{ old('password') }}">
+                <input type="password" class="form-control border border-dark " name="password"
+                    value="{{ old('password') }}" style="background: transparent">
                 <div id="error" class="error"></div>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <x-button class="w-100">Submit</x-button>
+            <a href="{{route('register')}} ">Create new Account</a>
         </form>
     </div>
     </div>
-
-    <!--Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
-</body>
-</html>
+@endsection

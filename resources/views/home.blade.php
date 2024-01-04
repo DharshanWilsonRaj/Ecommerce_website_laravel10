@@ -4,7 +4,7 @@
     <div class="container d-flex mt-5">
         <div class="row">
             @foreach ($products as $product)
-                <div class="product border col-2 mx-3 mb-2 p-2 rounded shadow-sm">
+                <div class="product border col-2 mx-3 mb-2 p-2 rounded shadow">
                     @if ($product->image)
                         <img src="{{ $product->image }}" alt="{{ $product->name }}" class="img-fluid rounded mx-auto d-block"
                             style="height: 150px; width:200px">
