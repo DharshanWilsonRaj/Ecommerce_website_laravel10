@@ -34,6 +34,7 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 // everyone access
 Route::get('/cart', [CustomerController::class, 'cartPage'])->name('cart');
 Route::get('/addCart/{id}', [CustomerController::class, 'addCart'])->name('addCart');
+Route::get('/update-cart/{id}/{action}', [CustomerController::class, 'updateCart'])->name('updateCart');
 
 
 // Authenticate Routes
@@ -49,7 +50,6 @@ Route::middleware(['auth'])->group(function () {
             Route::get('profile', [AuthController::class, 'adminprofile'])->name('admin.profile');
             Route::post('profile', [AuthController::class, 'adminProfileUpdate'])->name('admin.profile.update');
 
-
             Route::prefix('products')->group(function () {
                 Route::get('add', [AdminController::class, 'productAdd'])->name('admin.product.add');
                 Route::post('add', [AdminController::class, 'productStore'])->name('admin.product.store');
@@ -64,5 +64,8 @@ Route::middleware(['auth'])->group(function () {
 
     // customer Routes
     Route::middleware('role:2')->group(function () {
+        Route::get('/profile', [CustomerController::class, 'customerProfile'])->name('profile');
+        Route::post('/profile', [CustomerController::class, 'updateProfile'])->name('profile');
     });
+    
 });

@@ -13,6 +13,7 @@
 
 
     <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
+
     @notifyCss
 
     <style>
@@ -30,6 +31,10 @@
         .navbar a:hover {
             padding: 2px;
             border-bottom: 1px solid white
+        }
+
+        .dropstart a {
+            color: #15121E
         }
     </style>
 </head>
@@ -55,19 +60,28 @@
                         </li>
                         @auth
                             <li>
-                                <a href=""
-                                    class="fw-bold {{ Str::contains(request()->url(), '/cart') ? 'active' : '' }}">Profile
+                                <a href="{{ route('profile') }}"
+                                    class="fw-bold {{ Str::contains(request()->url(), '/profile') ? 'active' : '' }}">Profile
+                                </a>
+
+                            </li>
+                            <li>
+                                <a href="{{ route('logout') }}"
+                                    class="fw-bold {{ Str::contains(request()->url(), '/logout') ? 'active' : '' }}">Logout
+                                </a>
+
+                            </li>
+                            <img src="{{ Auth::user()->image }}" alt="" width="40px" class="rounded-circle">
+                        @else
+                            <li>
+                                <a href="{{ route('login') }}"
+                                    class="fw-bold {{ Str::contains(request()->url(), '/login') ? 'active' : '' }}">SignIn
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('logout') }}"   class="fw-bold {{ Str::contains(request()->url(), '/logout') ? 'active' : '' }}">Logout </a>
-                            </li>
-                        @else
-                            <li>
-                                <a href="{{ route('login') }}"   class="fw-bold {{ Str::contains(request()->url(), '/login') ? 'active' : '' }}">SignIn </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('register') }}"   class="fw-bold {{ Str::contains(request()->url(), '/register') ? 'active' : '' }}">SignUp </a>
+                                <a href="{{ route('register') }}"
+                                    class="fw-bold {{ Str::contains(request()->url(), '/register') ? 'active' : '' }}">SignUp
+                                </a>
                             </li>
                         @endauth
                     </ul>
@@ -78,6 +92,7 @@
 
     {{-- bootstrap js --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" ></script>
     @notifyJs
 </body>
 

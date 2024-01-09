@@ -10,7 +10,6 @@ class ProductController extends Controller
     public function productsList()
     {
         $products = Product::get();
-
         return view('home', compact('products'));
     }
 }

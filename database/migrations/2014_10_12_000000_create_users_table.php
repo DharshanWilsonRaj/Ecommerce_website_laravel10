@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('role_id')->comment('1->Admin 2->customer');
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
-            $table->string('profile')->nullable();
+            $table->string('image')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
